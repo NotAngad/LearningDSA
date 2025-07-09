@@ -7,12 +7,6 @@
  * Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
  * The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
  */
-// const merge = (nums1 = [], m = 0, nums2 = [], n = 0) => {
-//   for (let i = 0; i < n; i++) {
-//     nums1[i + m] = nums2[i];
-//   }
-//   return nums1.sort((a, b) => a - b);
-// };
 
 const merge = (nums1 = [], m = 0, nums2 = [], n = 0) => {
   let left = m - 1;
