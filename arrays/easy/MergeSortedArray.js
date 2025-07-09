@@ -7,11 +7,25 @@
  * Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
  * The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
  */
+// const merge = (nums1 = [], m = 0, nums2 = [], n = 0) => {
+//   for (let i = 0; i < n; i++) {
+//     nums1[i + m] = nums2[i];
+//   }
+//   return nums1.sort((a, b) => a - b);
+// };
+
 const merge = (nums1 = [], m = 0, nums2 = [], n = 0) => {
-  for (let i = 0; i < n; i++) {
-    nums1[i + m] = nums2[i];
+  let left = m - 1;
+  let right = n - 1;
+  let mergePointer = m + n - 1;
+
+  while (right >= 0) {
+    if (left >= 0 && nums1[left] > nums2[right]) {
+      nums1[mergePointer--] = nums1[left--];
+    } else {
+      nums1[mergePointer--] = nums2[right--];
+    }
   }
-  return nums1.sort((a, b) => a - b);
 };
 
-console.log(merge([4, 5, 6, 0, 0, 0], 3, [1, 2, 3], 3));
+console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
