@@ -13,13 +13,11 @@ const canConstruct = (ransomNote, magazine) => {
   }
 
   for (let i = 0; i < magazine.length; i++) {
-    if (noteMap[magazine[i]]) {
-      noteMap[magazine[i]]--;
-      if (noteMap[magazine[i]] === 0) delete noteMap[magazine[i]];
-    }
+    noteMap[magazine[i]] ? noteMap[magazine[i]]-- : null;
+    if (noteMap[magazine[i]] === 0) delete noteMap[magazine[i]];
   }
 
   return Object.keys(noteMap).length === 0;
 };
 
-console.log(canConstruct("aa", "ab"));
+console.log(canConstruct("aa", "xaab"));
