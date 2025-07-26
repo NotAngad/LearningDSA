@@ -1,3 +1,9 @@
+/**
+ * https://leetcode.com/problems/valid-anagram/description/
+ * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+ * Input: s = "anagram", t = "nagaram"
+ * Output: true
+ */
 const isAnagram = (s, t) => {
   if (s.length !== t.length) return false;
 
