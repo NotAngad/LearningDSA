@@ -9,16 +9,23 @@
  * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
  */
 const maxProfit = (prices) => {
-  let minPrice = prices[0];
+  let left = 0;
+  let right = 1;
   let maxProfit = 0;
 
-  for (let i = 1; i < prices.length; i++) {
-    const profit = prices[i] - minPrice;
-    maxProfit = Math.max(maxProfit, profit);
-    minPrice = Math.min(minPrice, prices[i]);
+  while (right < prices.length) {
+    let profit = prices[right] - prices[left];
+
+    if (profit <= 0) {
+      left = right;
+    } else if (profit > maxProfit) {
+      maxProfit = profit;
+    }
+
+    right++;
   }
 
   return maxProfit;
 };
 
-console.log(maxProfit([7, 6, 4, 3, 1]));
+console.log(maxProfit([1, 2, 4, 2, 5, 7, 2, 4, 9, 0, 9]));
