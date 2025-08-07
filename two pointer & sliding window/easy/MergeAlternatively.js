@@ -8,22 +8,22 @@
 const mergeAlternately = (word1 = "", word2 = "") => {
   let left = 0;
   let right = 0;
-  let str = "";
+
+  let result = [];
 
   while (left < word1.length || right < word2.length) {
-    if (left > word1.length - 1 && right <= word2.length - 1) {
-      str += word2[right];
-    } else if (right > word2.length - 1 && left <= word1.length - 1) {
-      str += word1[left];
-    } else {
-      str += `${word1[left]}${word2[right]}`;
+    if (left < word1.length) {
+      result.push(word1[left]);
+      left++;
     }
 
-    left++;
-    right++;
+    if (right < word2.length) {
+      result.push(word2[right]);
+      right++;
+    }
   }
 
-  return str;
+  return result.join("");
 };
 
 console.log(mergeAlternately("fb", "ce"));
